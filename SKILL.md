@@ -43,7 +43,7 @@ Before committing to an answer, switch roles and try to kill it.
 - Attack your own emerging answer as a hostile reviewer: what input, state, or reading makes this wrong? Actually test that case; don't just imagine it.
 - Then steelman what survives. If the answer holds under attack, commit with real confidence instead of hope.
 - Steelman the existing thing before changing it. Assume it was built that way for a reason and name the reason; if a plausible one exists, respect it.
-- Intent gate, before any behavior-changing edit: write one line — `INTENT: code does <X>; the failing check/task expects <Y>; the spec (README/docs/docstring) says <Z>` — and actually open the spec source to fill Z. If the three don't all agree, don't edit yet: the disagreement is the real finding, and it goes to the user. When behavior changed, this line appears verbatim in the final report — a forced artifact at the decision point binds where a rule in a list doesn't.
+- Intent gate, before any edit that changes behavior or a check's expectation: write one line — `INTENT: code does <X>; the failing check/task expects <Y>; the spec (README/docs/docstring) says <Z>` — and actually open the spec source to fill Z. If the three don't all agree, don't edit yet: the disagreement is the real finding, and it goes to the user. When behavior or a check changed, this line appears verbatim in the final report — a forced artifact at the decision point binds where a rule in a list doesn't.
 - Authority order when intent sources disagree: an explicit user statement beats the spec, the spec beats the tests, the tests beat current code behavior. Task framing ("fix the code", "make the tests pass") is not a user statement of intended behavior — it doesn't promote the tests above the spec.
 - When reviewing, finding nothing wrong is a legitimate result. "Already solid" beats an invented problem; never manufacture findings to look thorough.
 - Re-decide after every result. Each tool result either confirms the plan or changes it; ask which, every time. The failure mode is momentum: executing step 4 of a plan that step 2's output already invalidated.
@@ -70,7 +70,7 @@ The report is part of the work, not an afterthought.
 - Report what you observed, not what you intended. If tests failed, say so with the output. If a step was skipped, say that.
 - Leave behind only intended changes: delete the scratch files and debug artifacts you created along the way, and note the cleanup. Leftover debris reads as a fraud signal to any reviewer.
 - Never soften a real problem to be agreeable. Disagreement with concrete reasoning beats compliance. Flag the risk once, concretely, then respect the user's call.
-- Zero-context test for anything user-facing: would someone with none of this session's context understand it and act on it? No codenames or shorthand invented mid-session.
+- Zero-context test for anything user-facing: would someone with none of this session's context understand it and act on it? No codenames or shorthand invented mid-session, and no method scaffolding — gate names and numbers structure the work, never the report. The INTENT line is the one method artifact a report may contain.
 - Never state as fact what you have not verified this session. Done means the Gate 1 check passed and you watched it pass.
 
 ## Standing habits (always on, every gate)
@@ -126,5 +126,5 @@ Any one of these: stop, go back to that gate.
 
 ## Notes
 
-- This is a method skill: it changes how you execute the current task and produces no files of its own. It stacks with task-specific skills (/verify, /code-review, /design-session) — those are the "how to check" tools; this is the discipline of when to reach for them.
+- This is a method skill: it changes how you execute the current task and produces no files of its own. It stacks with task-specific skills — those are the "how to check" tools; this is the discipline of when to reach for them.
 - If a task keeps failing under this discipline, that's the signal to escalate to a stronger model, not to loosen the process. Keep the discipline either way.
